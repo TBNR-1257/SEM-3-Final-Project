@@ -2,12 +2,12 @@ import axios from "axios";
 import localforage from "localforage";
 
 export const getAssignments = async () => {
-  const res = await axios.get("http://localhost:5127/assignments");
+  const res = await axios.get("https://online-course-xejk.onrender.com/assignments");
   return res.data;
 };
 
 export const getAssignmentById = async (id) => {
-  const res = await axios.get(`http://localhost:5127/assignments/${id}`);
+  const res = await axios.get(`https://online-course-xejk.onrender.com/assignments/${id}`);
   return res.data;
 };
 
@@ -18,7 +18,7 @@ export const addAssignment = async (assignment, image) => {
   formData.append("image", image);
   formData.append("video", assignment.video);
 
-  const res = await axios.post("http://localhost:5127/assignments", formData, {
+  const res = await axios.post("https://online-course-xejk.onrender.com/assignments", formData, {
     headers: {
       "x-auth-token": await localforage.getItem("token"),
     },
@@ -35,7 +35,7 @@ export const updateAssignment = async (assignment) => {
 
   const token = await localforage.getItem("token");
   const res = await axios.put(
-    `http://localhost:5127/assignments/${assignment.updatedAssignment.id}`,
+    `https://online-course-xejk.onrender.com/assignments/${assignment.updatedAssignment.id}`,
     formData,
     {
       headers: {
@@ -48,7 +48,7 @@ export const updateAssignment = async (assignment) => {
 
 export const deleteAssignment = async (id) => {
   const token = await localforage.getItem("token");
-  const res = await axios.delete(`http://localhost:5127/assignments/${id}`, {
+  const res = await axios.delete(`https://online-course-xejk.onrender.com/assignments/${id}`, {
     headers: {
       "x-auth-token": token,
     },

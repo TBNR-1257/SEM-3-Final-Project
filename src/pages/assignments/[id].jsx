@@ -50,7 +50,10 @@ export default function Assignment({ id }) {
 
       <div className="h-1/6 w-3/6 my-20 flex justify-center">
         <img
-          src={`http://localhost:5127/${data.image.replace("public", "")}`}
+          src={`https://online-course-xejk.onrender.com/${data.image.replace(
+            "public",
+            ""
+          )}`}
         />
       </div>
 

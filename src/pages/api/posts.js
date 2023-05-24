@@ -2,12 +2,14 @@ import axios from "axios";
 import localforage from "localforage";
 
 export const getPosts = async () => {
-  const res = await axios.get("http://localhost:5127/posts");
+  const res = await axios.get("https://online-course-xejk.onrender.com/posts");
   return res.data;
 };
 
 export const getPostById = async (id) => {
-  const res = await axios.get(`http://localhost:5127/posts/${id}`);
+  const res = await axios.get(
+    `https://online-course-xejk.onrender.com/posts/${id}`
+  );
   return res.data;
 };
 
@@ -18,11 +20,15 @@ export const addPost = async (post, image) => {
   formData.append("image", image);
   formData.append("video", post.video);
 
-  const res = await axios.post("http://localhost:5127/posts", formData, {
-    headers: {
-      "x-auth-token": await localforage.getItem("token"),
-    },
-  });
+  const res = await axios.post(
+    "https://online-course-xejk.onrender.com/posts",
+    formData,
+    {
+      headers: {
+        "x-auth-token": await localforage.getItem("token"),
+      },
+    }
+  );
   return res.data;
 };
 
@@ -35,7 +41,7 @@ export const updatePost = async (post) => {
 
   const token = await localforage.getItem("token");
   const res = await axios.put(
-    `http://localhost:5127/posts/${post.updatedPost.id}`,
+    `https://online-course-xejk.onrender.com/posts/${post.updatedPost.id}`,
     formData,
     {
       headers: {
@@ -48,10 +54,13 @@ export const updatePost = async (post) => {
 
 export const deletePost = async (id) => {
   const token = await localforage.getItem("token");
-  const res = await axios.delete(`http://localhost:5127/posts/${id}`, {
-    headers: {
-      "x-auth-token": token,
-    },
-  });
+  const res = await axios.delete(
+    `https://online-course-xejk.onrender.com/posts/${id}`,
+    {
+      headers: {
+        "x-auth-token": token,
+      },
+    }
+  );
   return res.data;
 };

@@ -46,7 +46,10 @@ export default function Post({ id }) {
 
       <div className="h-1/6 w-3/6 my-10">
         <img
-          src={`http://localhost:5127/${data.image.replace("public", "")}`}
+          src={`https://online-course-xejk.onrender.com/${data.image.replace(
+            "public",
+            ""
+          )}`}
         />
       </div>
 

@@ -13,7 +13,7 @@ export default function AuthPage(props) {
     const { value } = e.target[0];
     // console.log(value);
     axios
-      .post("http://localhost:5127/authenticate", {
+      .post("https://online-course-xejk.onrender.com/authenticate", {
         username: value,
       })
       .then((r) => props.onAuth({ username: value, secret: value }))

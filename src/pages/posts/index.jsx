@@ -36,7 +36,7 @@ export default function AssignmentList(props) {
               <Card className="border-2 border-slate-600 h-5/6">
                 <Card.Image
                   className="w-max h-max "
-                  src={`http://localhost:5127/${post.image.replace(
+                  src={`https://online-course-xejk.onrender.com/${post.image.replace(
                     "public",
                     ""
                   )}`}
@@ -72,7 +72,7 @@ export async function getServerSideProps() {
   /* <div className="card card-side bg-base-100 shadow-xl">
   <figure>
     <img
-      src={`http://localhost:5127/${post.image.replace("public", "")}`}
+      src={`https://online-course-xejk.onrender.com/${post.image.replace("public", "")}`}
       alt={post._id}
     />
   </figure>

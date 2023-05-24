@@ -4,14 +4,17 @@ import localforage from "localforage";
 
 export const register = async (userData) => {
   const res = await axios.post(
-    "http://localhost:5127/users/register",
+    "https://online-course-xejk.onrender.com/users/register",
     userData
   );
   return res.data;
 };
 
 export const login = async (userData) => {
-  const res = await axios.post("http://localhost:5127/users/login", userData);
+  const res = await axios.post(
+    "https://online-course-xejk.onrender.com/users/login",
+    userData
+  );
   if (res.data) {
     await localforage.setItem("token", res.data);
   }
@@ -24,7 +27,7 @@ export const logout = async () => {
 
 export const getUser = async () => {
   const token = await localforage.getItem("token");
-  const res = await axios.get("http://localhost:5127/users", {
+  const res = await axios.get("https://online-course-xejk.onrender.com/users", {
     headers: {
       "x-auth-token": token,
     },
