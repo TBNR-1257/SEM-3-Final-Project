@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { login } from "../api/users";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -77,9 +78,9 @@ export default function Login() {
       <div className="flex justify-center my-10">
         <p>
           Don't have an account? Sign up{" "}
-          <a className="underline underline-offset-8" href="/register">
+          <Link className="underline underline-offset-8" href="/register">
             here
-          </a>
+          </Link>
         </p>
       </div>
     </div>

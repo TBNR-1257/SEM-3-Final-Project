@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Dashboard() {
   return (
     <div className="pb-56">
@@ -6,12 +8,12 @@ export default function Dashboard() {
       </h1>
 
       <div className="flex justify-center">
-        <a
+        <Link
           href="/assignments"
           className="flex justify-center m-10 p-10 text-xl w-3/6 bg-gradient-to-r from-indigo-600 border-2 border-indigo-800 rounded-box"
         >
           Assignments
-        </a>
+        </Link>
       </div>
     </div>
   );

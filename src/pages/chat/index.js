@@ -3,7 +3,7 @@ import { useState } from "react";
 import AuthPage from "./AuthPage";
 import ChatsPage from "./ChatsPage";
 
-export default function chat() {
+export default function Chat() {
   const [user, setUser] = useState(undefined);
 
   if (!user) {

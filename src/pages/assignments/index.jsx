@@ -1,6 +1,7 @@
 import { useQuery, useQueryClient, useMutation } from "react-query";
 import { getAssignments } from "../api/assignments";
 import { getUser } from "../api/users";
+import Link from "next/link";
 
 export default function AssignmentList(props) {
   const { data } = useQuery("assignments", getAssignments, {
@@ -20,7 +21,7 @@ export default function AssignmentList(props) {
       {userCheck?.role === "admin" || userCheck?.role === "teacher" ? (
         <div className="flex justify-end mr-20 my-10">
           <button className="btn glass">
-            <a href="/assignments/create">Create Assignment</a>
+            <Link href="/assignments/create">Create Assignment</Link>
           </button>
         </div>
       ) : null}
@@ -40,7 +41,7 @@ export default function AssignmentList(props) {
                 </div>
               </div>
               <div className="flex gap-x-4">
-                <a href={`/assignments/${assignment._id}`}>View</a>
+                <Link href={`/assignments/${assignment._id}`}>View</Link>
               </div>
             </li>
           ))}

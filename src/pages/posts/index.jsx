@@ -3,6 +3,7 @@ import { getPosts } from "../api/posts";
 import { Card } from "react-daisyui";
 import { getUser } from "../api/users";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function AssignmentList(props) {
   const { data } = useQuery("posts", getPosts, {
@@ -24,7 +25,7 @@ export default function AssignmentList(props) {
       {userCheck?.role === "admin" ? (
         <div className="flex justify-end mr-20 my-6">
           <button className="btn glass">
-            <a href="/posts/create">Create Post</a>
+            <Link href="/posts/create">Create Post</Link>
           </button>
         </div>
       ) : null}
@@ -47,7 +48,7 @@ export default function AssignmentList(props) {
                   {/* <p>{post.content}</p> */}
 
                   <button className="btn-glass">
-                    <a href={`/posts/${post._id}`}>Read More</a>
+                    <Link href={`/posts/${post._id}`}>Read More</Link>
                   </button>
                 </Card.Body>
               </Card>
@@ -81,7 +82,7 @@ export async function getServerSideProps() {
     <p>{post.content}</p>
     <div className="card-actions justify-end">
       <button className="btn-glass">
-        <a href={`/posts/${post._id}`}>Read More</a>
+        <Link href={`/posts/${post._id}`}>Read More</Link>
       </button>
     </div>
   </div>

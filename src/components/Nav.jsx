@@ -2,6 +2,7 @@ import { redirect, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import localforage from "localforage";
 import { logout } from "@/pages/api/users";
+import Link from "next/link";
 
 export default function Nav() {
   const [auth, setAuth] = useState(null);
@@ -27,27 +28,27 @@ export default function Nav() {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl" href="/home">
+        <Link className="btn btn-ghost normal-case text-xl" href="/home">
           Rhythm&Blues
-        </a>
+        </Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a href="/posts">Posts</a>
+            <Link href="/posts">Posts</Link>
           </li>
 
           <li>
             {!auth ? (
               <>
-                <a href="/login">Login</a>
-                <a href="/register">Sign Up</a>
+                <Link href="/login">Login</Link>
+                <Link href="/register">Sign Up</Link>
               </>
             ) : (
               <>
-                <a href="/dashboard">Dashboard</a>
-                <a href="/chat">Chatroom</a>
-                <a onClick={logoutHandler}>Logout</a>
+                <Link href="/dashboard">Dashboard</Link>
+                <Link href="/chat">Chatroom</Link>
+                <Link onClick={logoutHandler}>Logout</Link>
               </>
             )}
           </li>
